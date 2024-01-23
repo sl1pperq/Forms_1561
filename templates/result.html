@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Главная</title>
+    <div id="links">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+              integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
+              crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+                integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+                crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </div>
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            {% for answer in answers %}
+                <ul class="list-group mt-3 mb-3">
+                    {% if answer.studfio != None %}
+                        <li class="list-group-item">ФИО ученика: {{ answer.studfio }}</li>
+                    {% endif %}
+
+                    {% if answer.parfio != None %}
+                        <li class="list-group-item">ФИО родителя: {{ answer.parfio }}</li>
+                    {% endif %}
+
+                    {% if answer.studmail != None %}
+                        <li class="list-group-item">Почта ученика: {{ answer.studmail }}</li>
+                    {% endif %}
+
+                    {% if answer.parmail != None %}
+                        <li class="list-group-item">Почта родителя: {{ answer.parmail }}</li>
+                    {% endif %}
+
+                    {% if answer.studphone != None %}
+                        <li class="list-group-item">Телефон ученика: {{ answer.studphone }}</li>
+                    {% endif %}
+
+                    {% if answer.parphone != None %}
+                        <li class="list-group-item">Телефон родителя: {{ answer.parphone }}</li>
+                    {% endif %}
+
+                    {% if answer.clas != None %}
+                        <li class="list-group-item">Класс: {{ answer.clas }}</li>
+                    {% endif %}
+
+                    {% if answer.school != None %}
+                        <li class="list-group-item">Школа: {{ answer.school }}</li>
+                    {% endif %}
+
+                    {% if answer.comment != None %}
+                        <li class="list-group-item">Комментарий: {{ answer.comment }}</li>
+                    {% endif %}
+                </ul>
+            {% endfor %}
+            <a class="btn btn-primary mt-3 mb-3" href="/" role="button">Главное меню</a>
+            <a class="btn btn-primary mt-3 mb-3" href="/event/export/xlsx/{{ id }}" role="button">
+                Экспорт в Excel
+            </a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
